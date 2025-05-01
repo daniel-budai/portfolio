@@ -22,7 +22,6 @@ export const SectionHeader = ({
           {description}
         </p>
       </div>
-      ;
     </>
   );
 };

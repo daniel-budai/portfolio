@@ -51,15 +51,34 @@ export const TestimonialsSection = () => {
             eyebrow="lorem ipsum dolor sit amet"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
           />
-          <div>
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name}>
-                <Image src={testimonial.avatar} alt={testimonial.name} />
-                <div>{testimonial.name}</div>
-                <div>{testimonial.position}</div>
-                <p>{testimonial.text}</p>
-              </Card>
-            ))}
+          <div className="mt-16 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex gap-8 flex-none ">
+              {testimonials.map((testimonial) => (
+                <Card
+                  key={testimonial.name}
+                  className="max-w-xs md:max-w-md md:p-8 "
+                >
+                  <div className="flex gap-4 items-center">
+                    <div className="size-14 bg-gray-700 rounded-full inline-flex items-center justify-center flex-shirnk-0">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="max-h-full"
+                      />
+                    </div>
+                    <div>
+                      <div className="font-semibold">{testimonial.name}</div>
+                      <div className="text-sm text-white/40">
+                        {testimonial.position}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-4 md:mt-6 text-sm text-white-50 md:text-base">
+                    {testimonial.text}
+                  </p>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>

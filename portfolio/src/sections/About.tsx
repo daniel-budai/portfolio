@@ -33,6 +33,9 @@ import StripeIcon from "@/assets/icons/stripe.svg";
 import NpmIcon from "@/assets/icons/npm.svg";
 import { TechIcons } from "./TechIcons";
 
+import { CardHeader } from "@/components/CardHeader";
+import { ToolboxItems } from "@/components/ToolboxItems";
+
 // Postman, dyanamoDB, zustand, express,
 
 const toolboxItems = [
@@ -130,46 +133,77 @@ const toolboxItems = [
   },
 ];
 
+const hobbies = [
+  {
+    title: "Reading",
+    emoji: "📚",
+  },
+  {
+    title: "Gaming",
+    emoji: "🎮",
+  },
+  {
+    title: "Traveling",
+    emoji: "🌍",
+  },
+  {
+    title: "Cooking",
+    emoji: "🍳",
+  },
+  {
+    title: "Gym",
+    emoji: "🏋️‍♂️",
+  },
+  {
+    title: "Yoga",
+    emoji: "🧘‍♂️",
+  },
+];
+
 export const AboutSection = () => {
   return (
-    <div className="pb-96">
-      <SectionHeader
-        title="About me"
-        eyebrow="About me"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
-      />
-      <div>
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </p>
-          </div>
-          <Image src={bookImage} alt="Book" />
-        </Card>
-        <Card>
-          <div>
-            <StarIcon />
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </p>
-          </div>
-          <div>
-            {toolboxItems.map((item) => (
-              <div key={item.title}>
-                <span>
-                  <TechIcons component={item.iconType} />
-                </span>
-                <span>{item.title}</span>
-              </div>
-            ))}
-          </div>
-        </Card>
+    <div className="py-20">
+      <div className="container">
+        <SectionHeader
+          title="About me"
+          eyebrow="About me"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+        />
+        <div className="mt-20 flex flex-col gap-8">
+          <Card className="h-[320px]">
+            <CardHeader
+              title="Lorem ipsum dolor sit amet"
+              description="Quisquam, quos."
+            />
+            <div className="w-40 mx-auto mt-8">
+              <Image src={bookImage} alt="Book" />
+            </div>
+          </Card>
+          <Card className="h-[320px]">
+            <CardHeader title="Toolbox" description="My tools" />
+            <ToolboxItems toolboxItems={toolboxItems} className="mt-6" />
+            <ToolboxItems
+              toolboxItems={toolboxItems}
+              className="mt-6"
+              itemsWrapperClassName="-translate-x-1/2"
+            />
+          </Card>
+          <Card>
+            <CardHeader
+              title="Beyond the code"
+              description="Here i want to list my hobbies"
+              className="px-6 pt-6"
+            />
+            <div>
+              {hobbies.map((hobby) => (
+                <div key={hobby.title}>
+                  <span>{hobby.title}</span>
+                  <span>{hobby.emoji}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
   );

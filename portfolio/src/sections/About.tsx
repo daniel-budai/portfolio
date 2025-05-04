@@ -22,21 +22,23 @@ import NodeJsIcon from "@/assets/icons/node.svg";
 import MongoDBIcon from "@/assets/icons/mongodb.svg";
 import PostgreSQLIcon from "@/assets/icons/postgresql.svg";
 import MySQLIcon from "@/assets/icons/mysql.svg";
-
+import DynamoDBIcon from "@/assets/icons/dynamodb.svg";
 import AWSIcon from "@/assets/icons/aws.svg";
 import GoogleCloudIcon from "@/assets/icons/googlecloud.svg";
 import DockerIcon from "@/assets/icons/docker.svg";
 import GitIcon from "@/assets/icons/git.svg";
 import GithubIcon from "@/assets/icons/github.svg";
+import PostmanIcon from "@/assets/icons/postman.svg";
 
 import StripeIcon from "@/assets/icons/stripe.svg";
 import NpmIcon from "@/assets/icons/npm.svg";
+import ExpressIcon from "@/assets/icons/express.svg";
 import { TechIcons } from "./TechIcons";
 
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 
-// Postman, dyanamoDB, zustand, express,
+// zustand
 
 const toolboxItems = [
   {
@@ -60,7 +62,7 @@ const toolboxItems = [
     iconType: VueIcon,
   },
   {
-    title: "Nuxt",
+    title: "Nuxt.js",
     iconType: NuxtIcon,
   },
   {
@@ -92,8 +94,16 @@ const toolboxItems = [
     iconType: NodeJsIcon,
   },
   {
+    title: "Express",
+    iconType: ExpressIcon,
+  },
+  {
     title: "MongoDB",
     iconType: MongoDBIcon,
+  },
+  {
+    title: "DynamoDB",
+    iconType: DynamoDBIcon,
   },
   {
     title: "PostgreSQL",
@@ -122,6 +132,10 @@ const toolboxItems = [
   {
     title: "GitHub",
     iconType: GithubIcon,
+  },
+  {
+    title: "Postman",
+    iconType: PostmanIcon,
   },
   {
     title: "Stripe",

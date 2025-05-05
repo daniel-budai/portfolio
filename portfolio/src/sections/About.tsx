@@ -151,26 +151,38 @@ const hobbies = [
   {
     title: "Reading",
     emoji: "📚",
+    left: "5%",
+    top: "5%",
   },
   {
     title: "Gaming",
     emoji: "🎮",
+    left: "50%",
+    top: "5%",
   },
   {
     title: "Traveling",
     emoji: "🌍",
+    left: "10%",
+    top: "35%",
   },
   {
     title: "Cooking",
     emoji: "🍳",
+    left: "35",
+    top: "40%",
   },
   {
     title: "Gym",
     emoji: "🏋️‍♂️",
+    left: "70%",
+    top: "45%",
   },
   {
     title: "Yoga",
     emoji: "🧘‍♂️",
+    left: "5%",
+    top: "65%",
   },
 ];
 
@@ -184,34 +196,42 @@ export const AboutSection = () => {
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
         />
         <div className="mt-20 flex flex-col gap-8">
-          <Card className="h-[320px]">
-            <CardHeader
-              title="Lorem ipsum dolor sit amet"
-              description="Quisquam, quos."
-            />
-            <div className="w-40 mx-auto mt-8">
-              <Image src={bookImage} alt="Book" />
-            </div>
-          </Card>
-          <Card className="h-[320px]">
-            <CardHeader title="Toolbox" description="My tools" />
-            <ToolboxItems toolboxItems={toolboxItems} className="mt-6" />
-            <ToolboxItems
-              toolboxItems={toolboxItems}
-              className="mt-6"
-              itemsWrapperClassName="-translate-x-1/2"
-            />
-          </Card>
-          <Card>
+          <div className="grid grid-cols-1 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
+            <Card className="h-[320px] col-span-2 md:col-span-2 lg:col-span-1">
+              <CardHeader title="Github" description="My Github stats" />
+              {/* <div className="w-40 mx-auto mt-8">
+                <Image src={bookImage} alt="Book" className="mt-5" />
+              </div> */}
+            </Card>
+            <Card className="h-[320px] md:col-span-3 lg:col-span-2 ">
+              <CardHeader title="Toolbox" description="My tools" />
+              <ToolboxItems toolboxItems={toolboxItems} className="" />
+              <ToolboxItems
+                toolboxItems={toolboxItems}
+                className="mt-6"
+                itemsWrapperClassName="-translate-x-1/2"
+              />
+            </Card>
+          </div>
+          <Card className="h-[320px] flex flex-col md:col-span-3 lg:col-span-2">
             <CardHeader
               title="Beyond the code"
               description="Here i want to list my hobbies"
-              className="px-6 pt-6"
+              className=""
             />
-            <div>
+            <div className="relative flex-1">
               {hobbies.map((hobby) => (
-                <div key={hobby.title}>
-                  <span>{hobby.title}</span>
+                <div
+                  key={hobby.title}
+                  className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 text-white rounded-full py-1.5 absolute"
+                  style={{
+                    left: hobby.left,
+                    top: hobby.top,
+                  }}
+                >
+                  <span className="text-gray-950 font-medium">
+                    {hobby.title}
+                  </span>
                   <span>{hobby.emoji}</span>
                 </div>
               ))}

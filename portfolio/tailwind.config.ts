@@ -28,6 +28,7 @@ const config: Config = {
       animation: {
         "ping-large": "ping-large 1s ease-in-out infinite",
         orbit: "orbit linear infinite",
+        "move-left": "move-left 30s linear infinite",
       },
       keyframes: {
         "ping-large": {
@@ -36,6 +37,10 @@ const config: Config = {
         orbit: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        "move-left": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

@@ -21,35 +21,104 @@ export const HeroSection = () => {
         <div className="size-[820px] hero-ring"></div>
         <div className="size-[1020px] hero-ring"></div>
         <div className="size-[1220px] hero-ring"></div>
-        <HeroOrbit size={800} rotation={-72}>
-          <StarIcon className="size-28 text-emerald-300" />
-        </HeroOrbit>
-        <HeroOrbit size={550} rotation={20}>
-          <StarIcon className="size-12 text-emerald-300" />
-        </HeroOrbit>
-        <HeroOrbit size={590} rotation={98}>
-          <StarIcon className="size-8 text-emerald-300" />
-        </HeroOrbit>
-        <HeroOrbit size={430} rotation={-15}>
+
+        {/*   spinDuration?: string;
+  shouldSpin?: boolean;
+  shouldOrbit?: boolean;
+  orbitDuration?: string;*/}
+
+        <HeroOrbit
+          size={430}
+          rotation={-15}
+          shouldSpin={true}
+          spinDuration="30s"
+        >
           <SparkleIcon className="size-8 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={440} rotation={79}>
+
+        <HeroOrbit
+          size={440}
+          rotation={79}
+          shouldSpin={true}
+          spinDuration="32s"
+        >
           <SparkleIcon className="size-5 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={530} rotation={178}>
+
+        <HeroOrbit
+          size={520}
+          rotation={-41}
+          shouldOrbit={true}
+          orbitDuration="34s"
+        >
+          <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+        </HeroOrbit>
+
+        <HeroOrbit
+          size={530}
+          rotation={178}
+          shouldOrbit={true}
+          orbitDuration="36s"
+        >
           <SparkleIcon className="size-10 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={710} rotation={143}>
+
+        <HeroOrbit
+          size={550}
+          rotation={20}
+          shouldOrbit={true}
+          orbitDuration="38s"
+          shouldSpin={true}
+          spinDuration="70s"
+        >
+          <StarIcon className="size-12 text-emerald-300" />
+        </HeroOrbit>
+
+        <HeroOrbit
+          size={590}
+          rotation={98}
+          shouldOrbit={true}
+          orbitDuration="40s"
+        >
+          <StarIcon className="size-8 text-emerald-300" />
+        </HeroOrbit>
+
+        <HeroOrbit
+          size={650}
+          rotation={-5}
+          shouldOrbit={true}
+          orbitDuration="42s"
+        >
+          <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+        </HeroOrbit>
+
+        <HeroOrbit
+          size={710}
+          rotation={143}
+          shouldOrbit={true}
+          orbitDuration="44s"
+        >
           <SparkleIcon className="size-14 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={720} rotation={85}>
+
+        <HeroOrbit
+          size={720}
+          rotation={85}
+          shouldOrbit={true}
+          orbitDuration="46s"
+        >
           <div className="size-3 bg-emerald-300/20 rounded-full"></div>
         </HeroOrbit>
-        <HeroOrbit size={520} rotation={-41}>
-          <div className="size-2 bg-emerald-300/20 rounded-full"></div>
-        </HeroOrbit>{" "}
-        <HeroOrbit size={650} rotation={-5}>
-          <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+
+        <HeroOrbit
+          size={800}
+          rotation={-72}
+          shouldOrbit={true}
+          orbitDuration="48s"
+          shouldSpin={true}
+          spinDuration="60s"
+        >
+          <StarIcon className="size-28 text-emerald-300" />
         </HeroOrbit>
       </div>
       <div className="container">

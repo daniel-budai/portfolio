@@ -9,10 +9,7 @@ const footerLinks = [
     title: "Github",
     href: "https://github.com/daniel-budai",
   },
-  {
-    title: "Email",
-    href: "mailto:danielbudaijobs@gmail.com",
-  },
+
   {
     title: "Facebook",
     href: "https://www.facebook.com/daniel.budai.332/",

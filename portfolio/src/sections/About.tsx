@@ -205,11 +205,15 @@ export const AboutSection = () => {
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2 ">
               <CardHeader title="Toolbox" description="My tools" />
-              <ToolboxItems toolboxItems={toolboxItems} className="" />
+              <ToolboxItems
+                toolboxItems={toolboxItems}
+                className=""
+                itemsWrapperClassName="animate-move-left [animation-duration:200s] "
+              />
               <ToolboxItems
                 toolboxItems={toolboxItems}
                 className="mt-6"
-                itemsWrapperClassName="-translate-x-1/2"
+                itemsWrapperClassName="animate-move-right [animation-duration:200s] "
               />
             </Card>
           </div>

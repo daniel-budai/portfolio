@@ -4,10 +4,6 @@ import { Card } from "@/components/Card";
 import { motion } from "framer-motion";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import StarIcon from "@/assets/icons/star.svg";
-import bookImage from "@/assets/images/book-cover.png";
-import Image from "next/image";
-
 import JavaScriptIcon from "@/assets/icons/javascript.svg";
 import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import ReactIcon from "@/assets/icons/react.svg";
@@ -37,12 +33,13 @@ import PostmanIcon from "@/assets/icons/postman.svg";
 import StripeIcon from "@/assets/icons/stripe.svg";
 import NpmIcon from "@/assets/icons/npm.svg";
 import ExpressIcon from "@/assets/icons/express.svg";
-import { TechIcons } from "./TechIcons";
 
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { useRandomWiggle } from "@/hooks/useRandomWiggle";
+import { useGitHubStats } from "@/hooks/useGitHubStats";
+import CountUp from "react-countup";
 
 // zustand
 
@@ -214,6 +211,9 @@ export const AboutSection = () => {
     pauseDuration: 1000,
   });
 
+  const { stats, loading } = useGitHubStats("daniel-budai");
+  console.log("Stats in component:", stats);
+
   return (
     <div className="py-20">
       <div className="container">
@@ -225,7 +225,51 @@ export const AboutSection = () => {
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
             <Card className="h-[320px] col-span-2 md:col-span-2 lg:col-span-1">
-              <CardHeader title="Github" description="My Github stats" />
+              <CardHeader title="Github" description="" />
+              <div className="flex flex-col gap-4 p-4">
+                {loading ? (
+                  <div className="flex items-center justify-center h-[200px]">
+                    <div className="w-6 h-6 border-2 border-emerald-300 border-t-transparent rounded-full animate-spin" />
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-emerald-400/10">
+                      <span className="text-sm text-gray-400">
+                        Total Commits
+                      </span>
+                      <CountUp
+                        end={stats.totalCommits}
+                        duration={2}
+                        className="text-xl font-bold text-emerald-400"
+                      />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-sky-400/10">
+                      <span className="text-sm text-gray-400">Total Repos</span>
+                      <CountUp
+                        end={stats.repositories}
+                        duration={2}
+                        className="text-xl font-bold text-sky-400"
+                      />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-purple-400/10">
+                      <span className="text-sm text-gray-400">Total PRs</span>
+                      <CountUp
+                        end={stats.pullRequests}
+                        duration={2}
+                        className="text-xl font-bold text-purple-400"
+                      />
+                    </div>
+                    <div className="flex flex-col items-center p-2 rounded-lg bg-amber-400/10">
+                      <span className="text-sm text-gray-400">Merged PRs</span>
+                      <CountUp
+                        end={stats.mergedPRs}
+                        duration={2}
+                        className="text-xl font-bold text-amber-400"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2 ">
               <CardHeader title="Toolbox" description="My tools" />

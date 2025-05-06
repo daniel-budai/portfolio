@@ -1,4 +1,8 @@
+"use client";
+
 import { Card } from "@/components/Card";
+import { motion } from "framer-motion";
+
 import { SectionHeader } from "@/components/SectionHeader";
 import StarIcon from "@/assets/icons/star.svg";
 import bookImage from "@/assets/images/book-cover.png";
@@ -37,6 +41,8 @@ import { TechIcons } from "./TechIcons";
 
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
+import { useRef, useEffect, useState } from "react";
+import { useRandomWiggle } from "@/hooks/useRandomWiggle";
 
 // zustand
 
@@ -151,26 +157,21 @@ const hobbies = [
   {
     title: "Reading",
     emoji: "📚",
-    left: "5%",
-    top: "5%",
+    left: "10%",
+    top: "1%",
   },
-  {
-    title: "Gaming",
-    emoji: "🎮",
-    left: "50%",
-    top: "5%",
-  },
+
   {
     title: "Traveling",
     emoji: "🌍",
-    left: "10%",
-    top: "35%",
+    left: "25%",
+    top: "33%",
   },
   {
     title: "Cooking",
     emoji: "🍳",
-    left: "35",
-    top: "40%",
+    left: "70%",
+    top: "1%",
   },
   {
     title: "Gym",
@@ -178,15 +179,41 @@ const hobbies = [
     left: "70%",
     top: "45%",
   },
+
   {
-    title: "Yoga",
-    emoji: "🧘‍♂️",
-    left: "5%",
-    top: "65%",
+    title: "Car Projects",
+    emoji: "🚗",
+    left: "50%",
+    top: "29%",
+  },
+  {
+    title: "Tech Tinkering",
+    emoji: "💻",
+    left: "40%",
+    top: "60%",
+  },
+  {
+    title: "Language Learning",
+    emoji: "🈶",
+    left: "28%",
+    top: "5%",
+  },
+  {
+    title: "Family time",
+    emoji: "👨‍👩‍👧‍👦",
+    left: "12%",
+    top: "60%",
   },
 ];
 
 export const AboutSection = () => {
+  const constraintRef = useRef(null);
+  const activeWiggle = useRandomWiggle({
+    items: hobbies,
+    wiggleDuration: 1000,
+    pauseDuration: 1000,
+  });
+
   return (
     <div className="py-20">
       <div className="container">
@@ -199,9 +226,6 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
             <Card className="h-[320px] col-span-2 md:col-span-2 lg:col-span-1">
               <CardHeader title="Github" description="My Github stats" />
-              {/* <div className="w-40 mx-auto mt-8">
-                <Image src={bookImage} alt="Book" className="mt-5" />
-              </div> */}
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2 ">
               <CardHeader title="Toolbox" description="My tools" />
@@ -223,21 +247,31 @@ export const AboutSection = () => {
               description="Here i want to list my hobbies"
               className=""
             />
-            <div className="relative flex-1">
+            <div className="relative flex-1" ref={constraintRef}>
               {hobbies.map((hobby) => (
-                <div
+                <motion.div
                   key={hobby.title}
-                  className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 text-white rounded-full py-1.5 absolute"
+                  className="inline-flex items-center gap-0.5 sm:gap-2 px-1.5 sm:px-3 md:px-6 bg-gradient-to-r from-emerald-300 to-sky-400 text-white rounded-full py-0.5 sm:py-1 md:py-1.5 absolute text-[10px] sm:text-sm md:text-base scale-75 sm:scale-90 md:scale-100 cursor-grab active:cursor-grabbing"
                   style={{
                     left: hobby.left,
                     top: hobby.top,
+                  }}
+                  drag
+                  dragConstraints={constraintRef}
+                  whileHover={{ scale: 1.1 }}
+                  animate={{
+                    rotate: activeWiggle === hobby.title ? [-2, 2, -2] : 0,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
                   }}
                 >
                   <span className="text-gray-950 font-medium">
                     {hobby.title}
                   </span>
                   <span>{hobby.emoji}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </Card>

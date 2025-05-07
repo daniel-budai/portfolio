@@ -1,16 +1,29 @@
 "use client";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { motion } from "framer-motion";
 
 export const Header = () => {
   const activeSection = useActiveSection();
+
+  useSmoothScroll({
+    duration: 800,
+    ease: "easeInOut",
+    offset: 20,
+  });
 
   const getNavItemClass = (section: string) => {
     return `nav-item ${activeSection === section ? "nav-item-active" : ""}`;
   };
 
   return (
-    <div className="flex justify-center items-center fixed top-3 w-full z-10">
+    <motion.div
+      className="flex justify-center items-center fixed top-3 w-full z-10"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <nav className="flex gap-1 p-0.5 border-white/15 rounded-full bg-white/5 backdrop-blur">
         <a href="#hero" className={getNavItemClass("hero")}>
           Home
@@ -28,6 +41,6 @@ export const Header = () => {
           Contact
         </a>
       </nav>
-    </div>
+    </motion.div>
   );
 };

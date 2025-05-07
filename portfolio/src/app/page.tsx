@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { ProjectsSection } from "@/sections/Projects";
@@ -6,28 +8,53 @@ import { TestimonialsSection } from "@/sections/Testimonials";
 import { AboutSection } from "@/sections/About";
 import { ContactSection } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 export default function Home() {
+  useSmoothScroll();
+
   return (
     <div>
       <Header />
+
       <div id="hero">
-        <HeroSection />
+        <AnimateOnScroll animation="fadeIn" duration={0.8}>
+          <HeroSection />
+        </AnimateOnScroll>
       </div>
+
       <div id="projects">
-        <ProjectsSection />
+        <AnimateOnScroll animation="slideUp" duration={0.7} delay={0.1}>
+          <ProjectsSection />
+        </AnimateOnScroll>
       </div>
-      <TapeSection />
+
+      <AnimateOnScroll animation="scale" duration={0.6}>
+        <TapeSection />
+      </AnimateOnScroll>
+
       <div id="testimonials">
-        <TestimonialsSection />
+        <AnimateOnScroll animation="slideLeft" duration={0.7}>
+          <TestimonialsSection />
+        </AnimateOnScroll>
       </div>
+
       <div id="about">
-        <AboutSection />
+        <AnimateOnScroll animation="slideRight" duration={0.7}>
+          <AboutSection />
+        </AnimateOnScroll>
       </div>
+
       <div id="contact">
-        <ContactSection />
+        <AnimateOnScroll animation="slideUp" duration={0.7} delay={0.2}>
+          <ContactSection />
+        </AnimateOnScroll>
       </div>
-      <Footer />
+
+      <AnimateOnScroll animation="fadeIn" duration={0.5} delay={0.1}>
+        <Footer />
+      </AnimateOnScroll>
     </div>
   );
 }

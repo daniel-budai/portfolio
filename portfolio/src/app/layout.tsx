@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-
+import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 const calistoga = Calistoga({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -30,9 +30,10 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-gray-900 text-white antialiased font-sans" //font-sans is the default font
+          "bg-gray-900 text-white antialiased font-sans overflow-x-hidden"
         )}
       >
+        <ScrollProgressBar />
         {children}
       </body>
     </html>

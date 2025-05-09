@@ -3,6 +3,8 @@ import "./globals.css";
 import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
+import Providers from "@/providers/SWRProvider";
+
 const calistoga = Calistoga({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -15,8 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Created with the help of Frontend Tribe",
+  title: "| PORTFOLIO | DANIEL BUDAI |",
+  description: "Portfolio of Daniel Budai",
 };
 
 export default function RootLayout({
@@ -33,8 +35,10 @@ export default function RootLayout({
           "bg-gray-900 text-white antialiased font-sans overflow-x-hidden"
         )}
       >
-        <ScrollProgressBar />
-        {children}
+        <Providers>
+          <ScrollProgressBar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

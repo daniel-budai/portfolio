@@ -15,7 +15,7 @@ export default function Home() {
   useSmoothScroll();
 
   return (
-    <div>
+    <div className="overflow-x-clip">
       <Header />
 
       <div id="hero">

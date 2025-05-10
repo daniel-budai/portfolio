@@ -223,8 +223,8 @@ export const AboutSection = () => {
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
         />
         <div className="mt-20 flex flex-col gap-8">
-          <div className="grid grid-cols-1 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
-            <Card className="h-[320px] col-span-2 md:col-span-2 lg:col-span-1">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
+            <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader title="Github" description="" />
               <div className="flex flex-col gap-4 p-4">
                 {loading ? (

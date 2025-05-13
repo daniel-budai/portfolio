@@ -15,30 +15,45 @@ const testimonials = [
     position: "Marketing Manager @ TechStartups",
     text: "Alex was instrumental in transforming our website into a powerful marketing tool. His attention to detail and ability to understand our brand is exceptional. We're thrilled with the results!",
     avatar: memojiAvatar1,
+    imageStyles: {
+      transform: "scale(0.89)",
+    },
   },
   {
     name: "Olivia Green",
     position: "Head of Design @ GreenLeaf",
     text: "Working with Alex was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
     avatar: memojiAvatar2,
+    imageStyles: { transform: "translate(1px, 2px)" },
   },
   {
     name: "Daniel White",
     position: "CEO @ InnovateCo",
     text: "Alex's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
     avatar: memojiAvatar3,
+    imageStyles: {
+      objectPosition: "-2px center",
+      transform: "scale(1.04) translateY(2px)",
+    },
   },
   {
     name: "Emily Carter",
     position: "Product Manager @ GlobalTech",
     text: "Alex is a true frontend wizard. He took our complex product and transformed it into an intuitive and engaging user interface. We're already seeing positive feedback from our customers.",
     avatar: memojiAvatar4,
+    imageStyles: {
+      objectPosition: "-4px center",
+      transform: "scale(0.88) translateY(-3px)",
+    },
   },
   {
     name: "Michael Brown",
     position: "Director of IT @ MegaCorp",
     text: "Alex's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
     avatar: memojiAvatar5,
+    imageStyles: {
+      transform: "scale(0.86)",
+    },
   },
 ];
 
@@ -62,11 +77,12 @@ export const TestimonialsSection = () => {
                       className="max-w-xs md:max-w-md md:p-8 p-6 hover:-rotate-3 transition-transform "
                     >
                       <div className="flex gap-4 items-center">
-                        <div className="size-14 bg-gray-700 rounded-full inline-flex items-center justify-center flex-shrink-0">
+                        <div className="size-14 bg-gray-700 rounded-full inline-flex items-center justify-center flex-shrink-0 overflow-hidden">
                           <Image
                             src={testimonial.avatar}
                             alt={testimonial.name}
-                            className="max-h-full"
+                            className="w-16 h-16 object-cover rounded-full"
+                            style={testimonial.imageStyles}
                           />
                         </div>
                         <div>

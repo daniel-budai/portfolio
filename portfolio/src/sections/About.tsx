@@ -36,10 +36,12 @@ import ExpressIcon from "@/assets/icons/express.svg";
 
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useRandomWiggle } from "@/hooks/useRandomWiggle";
 import { useGitHubStats } from "@/hooks/useGitHubStats";
 import CountUp from "react-countup";
+import { AnimatedIntroTitle } from "@/components/AnimatedIntroTitle";
+import { ExpandableDescription } from "@/components/ExpandableDescription";
 
 // zustand
 
@@ -214,6 +216,41 @@ export const AboutSection = () => {
   const { stats, loading } = useGitHubStats("daniel-budai");
   console.log("Stats in component:", stats);
 
+  const [isTextExpanded, setIsTextExpanded] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const toggleReadMore = () => {
+    setIsTextExpanded(!isTextExpanded);
+  };
+
+  const paragraphContents = [
+    "As a software developer, communication is central to my approach. Comfortable with both verbal and written communication, I collaborate with people from different roles to ensure everyone is aligned and on the same page.",
+    "With a strong belief in teamwork, I bring a collaborative mindset to every project. Working alongside designers, product managers, and other developers, I help plan and build great features together.",
+    "Driven by problem-solving, I approach challenges with analytical thinking, creative problem-solving, and effective troubleshooting to resolve issues efficiently.",
+    "Adaptability is one of my strengths. Comfortable with change and a fast learner, I thrive in dynamic environments where priorities shift quickly. With solid time management skills, I stay deadline-oriented, know how to prioritize, and remain self-motivated to keep projects moving forward.",
+    "Finally, attention to detail defines my work. I focus on delivering quality software, with an emphasis on code craftsmanship and precision in every task.",
+  ];
+
+  const TRUNCATE_LENGTH_LARGE = 660;
+  const TRUNCATE_LENGTH_SMALL = 300;
+  const TRUNCATE_LENGTH = isLargeScreen
+    ? TRUNCATE_LENGTH_LARGE
+    : TRUNCATE_LENGTH_SMALL;
+
+  const fullTextContent = paragraphContents.join(" ");
+  const needsTruncation = fullTextContent.length > TRUNCATE_LENGTH;
+
   return (
     <div className="py-20">
       <div className="container">
@@ -223,9 +260,24 @@ export const AboutSection = () => {
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
         />
         <div className="mt-20 flex flex-col gap-8">
+          <Card
+            className={`flex flex-col ${
+              !isTextExpanded && needsTruncation ? "h-[320px]" : ""
+            }`}
+          >
+            <CardHeader title={<AnimatedIntroTitle />} description="" />
+            <ExpandableDescription
+              isTextExpanded={isTextExpanded}
+              toggleReadMore={toggleReadMore}
+              paragraphContents={paragraphContents}
+              truncateLength={TRUNCATE_LENGTH}
+              fullTextContent={fullTextContent}
+              needsTruncation={needsTruncation}
+            />
+          </Card>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <CardHeader title="Github" description="" />
+              <CardHeader title="Github" description="Github stats" />
               <div className="flex flex-col gap-4 p-4">
                 {loading ? (
                   <div className="flex items-center justify-center h-[200px]">

@@ -11,25 +11,25 @@ import { Fragment } from "react";
 
 const testimonials = [
   {
-    name: "Alex Turner",
-    position: "Marketing Manager @ TechStartups",
-    text: "Alex was instrumental in transforming our website into a powerful marketing tool. His attention to detail and ability to understand our brand is exceptional. We're thrilled with the results!",
+    name: "Joakim Rosén",
+    position: "CTO & Co-founder @ Etals",
+    text: "Daniel is a curious and driven individual who thrives on challenges. He successfully developed a fairly advanced product from scratch — incorporating both AI and OCR — despite having no prior experience in the area. His ability to take ownership and learn quickly far exceeded our expectations.",
     avatar: memojiAvatar1,
     imageStyles: {
       transform: "scale(0.89)",
     },
   },
   {
-    name: "Olivia Green",
-    position: "Head of Design @ GreenLeaf",
-    text: "Working with Alex was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
+    name: "Warhell Nasim",
+    position: "Senior Software Engineer @ Flightradar24",
+    text: "Daniel is someone you can always count on to meet deadlines. He approaches problem-solving with focus and creativity, and stays calm under pressure to ensure tasks are completed accurately and on time.",
     avatar: memojiAvatar2,
     imageStyles: { transform: "translate(1px, 2px)" },
   },
   {
-    name: "Daniel White",
-    position: "CEO @ InnovateCo",
-    text: "Alex's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
+    name: "Oscar Altkvist",
+    position: "Junior Software Developer @ Etals",
+    text: "Daniel is friendly and easy to talk to, and he communicates clearly with both teammates and clients. He’s a fast learner who adapts easily whenever things change.",
     avatar: memojiAvatar3,
     imageStyles: {
       objectPosition: "-2px center",
@@ -37,9 +37,9 @@ const testimonials = [
     },
   },
   {
-    name: "Emily Carter",
-    position: "Product Manager @ GlobalTech",
-    text: "Alex is a true frontend wizard. He took our complex product and transformed it into an intuitive and engaging user interface. We're already seeing positive feedback from our customers.",
+    name: "Rebecka Larsson",
+    position: "Software Developer Intern @ Etals",
+    text: "Daniel is a friendly and easygoing teammate who brings positive energy into every collaboration. He’s also structured, self-motivated, and dependable—able to take full ownership of his work and drive progress independently.",
     avatar: memojiAvatar4,
     imageStyles: {
       objectPosition: "-4px center",
@@ -47,9 +47,9 @@ const testimonials = [
     },
   },
   {
-    name: "Michael Brown",
-    position: "Director of IT @ MegaCorp",
-    text: "Alex's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
+    name: "Paulius Kamuntavicius",
+    position: "Software Developer Intern @ Etals",
+    text: "I had the pleasure of working with Daniel, and he was a truly great colleague to collaborate with. He approaches problem-solving with a positive attitude, a team-first mindset, and a humble approach that makes working with him easy and rewarding. Daniel lifts up everyone around him, creating a supportive and collaborative environment where the whole team can do their best work. I'd glady work with him again",
     avatar: memojiAvatar5,
     imageStyles: {
       transform: "scale(0.86)",
@@ -63,9 +63,9 @@ export const TestimonialsSection = () => {
       <div className="py-16 lg:py-24">
         <div className="container">
           <SectionHeader
-            title="loremememe"
-            eyebrow="lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+            title="What Others Say About Me"
+            eyebrow="Testimonials"
+            description="People I've worked with share their experiences and insights from our collaborations."
           />
           <div className="mt-12 lg:mt-20 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4">
             <div className="flex gap-8 pr-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">

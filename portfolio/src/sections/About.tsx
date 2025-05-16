@@ -255,9 +255,9 @@ export const AboutSection = () => {
     <div className="py-20">
       <div className="container">
         <SectionHeader
-          title="About me"
-          eyebrow="About me"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          title="Get to know me"
+          eyebrow="About"
+          description="Passionate about coding, learning new things, and turning ideas into reality."
         />
         <div className="mt-20 flex flex-col gap-8">
           <Card

@@ -14,8 +14,8 @@ export const ContactSection = () => {
             <div>
               <h2 className="font-serif md:text-3xl text-2xl">Contact</h2>
               <p className="text-sm md:text-base mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, quos.
+                Let’s build something great together. Reach out and I’ll get
+                back to you as soon as possible.
               </p>
             </div>
             <div>

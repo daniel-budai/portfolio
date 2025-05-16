@@ -51,9 +51,9 @@ export const ProjectsSection = () => {
     <section className="pb-16 lg:pb-24 ">
       <div className="container">
         <SectionHeader
-          title="My projects"
-          eyebrow="real world projects"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+          eyebrow="Real stuff"
+          title="My Projects"
+          description="Here’s what I’ve been working on lately."
         />
         <div className="mt-10 md:mt-20 flex flex-col gap-20 sticky">
           {portfolioProjects.map((project, projectIndex) => (

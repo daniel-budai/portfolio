@@ -152,33 +152,39 @@ async function fetchAllYearContributions(
   username: string,
   token: string
 ): Promise<number> {
-  const currentYear = new Date().getFullYear();
-  const yearPromises = [];
+  // Use current date as the end date so it always includes latest commits
+  const endDate = new Date();
+  const promises = [];
 
-  // Fetch last X years of contributions
-  for (
-    let year = currentYear;
-    year >= currentYear - (YEARS_TO_FETCH - 1);
-    year--
-  ) {
-    const fromDate = new Date(year, 0, 1).toISOString(); // Jan 1
-    const toDate = new Date(year, 11, 31).toISOString(); // Dec 31
+  // Fetch contributions for YEARS_TO_FETCH years back from today
+  for (let i = 0; i < YEARS_TO_FETCH; i++) {
+    const startDate = new Date(endDate);
+    startDate.setFullYear(endDate.getFullYear() - (i + 1));
 
-    const yearPromise = callGitHubGraphQL<YearContributionsResponse>({
+    const iterationEndDate = new Date(endDate);
+    if (i > 0) {
+      iterationEndDate.setFullYear(endDate.getFullYear() - i);
+      iterationEndDate.setDate(iterationEndDate.getDate() - 1);
+    }
+
+    const fromDate = startDate.toISOString();
+    const toDate = iterationEndDate.toISOString();
+
+    const promise = callGitHubGraphQL<YearContributionsResponse>({
       query: YEARLY_CONTRIBUTIONS_QUERY,
       variables: { username, from: fromDate, to: toDate },
       token,
     });
 
-    yearPromises.push(yearPromise);
+    promises.push(promise);
   }
 
-  const yearResults = (await Promise.all(
-    yearPromises
+  const results = (await Promise.all(
+    promises
   )) as GraphQLResponse<YearContributionsResponse>[];
 
-  // Sum up contributions with proper type safety
-  return yearResults.reduce((total, result) => {
+  // Sum up contributions
+  return results.reduce((total, result) => {
     const contributions =
       result.data?.user?.contributionsCollection?.contributionCalendar
         ?.totalContributions || 0;

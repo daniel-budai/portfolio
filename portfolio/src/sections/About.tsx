@@ -277,7 +277,10 @@ export const AboutSection = () => {
           </Card>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-8 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <CardHeader title="Github" description="Github stats" />
+              <CardHeader
+                title="Github"
+                description="Stats from the past 3 years"
+              />
               <div className="flex flex-col gap-4 p-4">
                 {loading ? (
                   <div className="flex items-center justify-center h-[200px]">
@@ -324,7 +327,10 @@ export const AboutSection = () => {
               </div>
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2 ">
-              <CardHeader title="Toolbox" description="My tools" />
+              <CardHeader
+                title="Toolbox"
+                description="Technologies and tools I've worked with"
+              />
               <ToolboxItems
                 toolboxItems={toolboxItems}
                 className=""
@@ -340,7 +346,7 @@ export const AboutSection = () => {
           <Card className="h-[320px] flex flex-col md:col-span-3 lg:col-span-2">
             <CardHeader
               title="Beyond the code"
-              description="Here i want to list my hobbies"
+              description="Some of my hobbies"
               className=""
             />
             <div className="relative flex-1" ref={constraintRef}>

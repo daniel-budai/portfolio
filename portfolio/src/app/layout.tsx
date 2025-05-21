@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "| PORTFOLIO | DANIEL BUDAI |",
+  title: "| Daniel Budai | Portfolio |",
   description: "Portfolio of Daniel Budai",
 };
 
